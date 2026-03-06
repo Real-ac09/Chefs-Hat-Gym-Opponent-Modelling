@@ -10,3 +10,13 @@ Two RL algorithms are compared:
 
 - DQN (Deep Q-Network) — value-based, off-policy
 - PPO (Proximal Policy Optimisation) — policy gradient, on-policy
+
+Each algorithm is trained under three opponent conditions (6 experiments in total), all for 44,000 games to ensure a fair comparison.
+
+### Prerequisites
+- python=3.10.19
+- torch==2.10.0
+- gymnasium==1.2.3
+- chefshatgym==3.0.0.1
+- 
+### Experimental Setup
