@@ -40,12 +40,49 @@ Each algorithm is trained under three opponent conditions (6 experiments in tota
 ### Final Performance Comparison (All 6 Experiments)
 ![Final Comparison](results/plots/final_comparison.png)
 
-### Prerequisites
-- python=3.10.19
-- torch==2.10.0
-- gymnasium==1.2.3
-- chefshatgym==3.0.0.1
+## Setup & Installation
 
+### Prerequisites
+- Python 3.10.19
+- torch 2.10.0
+- chefshatgym 3.0.0.1
+- gymnasium 1.2.3
+- numpy 1.26.1
+- matplotlib 3.8.0
+- pandas 2.1.1
+- scipy 1.15.3
+- triton 3.6.0
+- websockets 15.0.1
+- redis 7.2.1
+- cloudpickle 3.1.2
+- pillow 12.1.1
+
+
+### Reproduce environment
+```bash
+conda env create -f environment.yml
+conda activate chefs_rl
+```
+
+### Run all DQN experiments
+```bash
+bash train_all_parallel.sh
+```
+
+### Run all PPO experiments
+```bash
+bash train_ppo_all_parallel.sh
+```
+
+### Resume from checkpoint
+Each training script automatically detects the latest checkpoint and resumes. Just re-run the script.
+
+### Evaluate and generate plots
+```bash
+python3 evaluate.py
+```
+
+---
 
 ## Agent Architecture & Hyperparameters
 
@@ -88,6 +125,14 @@ Each algorithm is trained under three opponent conditions (6 experiments in tota
 - Entropy bonus to encourage exploration
 
 ---
+
+## Interpreting the Results
+
+**Opponent Modelling:** The results consistently show that opponent quality and diversity during training directly shapes the strength of the learned policy. Agents trained exclusively against random opponents (exp1/exp4) produced the weakest policies, as random play offers little meaningful signal to learn from. Training against rule-based opponents improved performance, while mixed opponents — combining one rule-based and two random agents — produced the strongest and most generalisable policies for both DQN and PPO. This supports the core hypothesis of Variant 0: that opponent modelling matters, and richer opponent diversity leads to better agents.
+
+**DQN vs PPO:** DQN proved more stable across all three opponent conditions, maintaining consistent performance throughout training. PPO showed higher variance — it achieved comparable or better peak scores (notably exp5 reaching a best of 1.54) but was more sensitive to opponent type, with exp5 (vs rule-based) collapsing in the final 10,000 games to a final 20% average of just 0.52. This instability is consistent with known PPO behaviour in environments with sparse, noisy rewards, where policy gradient updates can overfit or destabilise under a fixed opponent. DQN's off-policy replay buffer helps it avoid this by smoothing out noisy transitions.
+
+**Head-to-Head & Stability:** In the 100-match head-to-head evaluation, the best DQN agent (exp2) outperformed the best PPO agent (exp6) with performance scores of 0.636 vs 0.601 respectively. Interestingly, random agents scored highest in this short evaluation, which reflects the high variance of short match evaluations in Chef's Hat rather than genuine superiority — a known limitation of the environment's scoring. Overall, DQN is the recommended algorithm for this environment due to its stability, while PPO remains a viable alternative with careful tuning.
 
 ## Environment
 
