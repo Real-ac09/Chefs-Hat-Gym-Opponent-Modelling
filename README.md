@@ -1,6 +1,8 @@
 # Chef's Hat Gym — Opponent Modelling with DQN and PPO
-**Coventry University | 7043SCN | Task 2 | Variant 0: Opponent Modelling**  
+**Coventry University | 7043SCN | Task 2 | Variant 0: Opponent Modelling** 
+
 **Student ID: 12224702**
+
 **Author: Mohamed Bseikri**
 
 ## Overview
