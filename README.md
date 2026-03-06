@@ -26,6 +26,16 @@ Each algorithm is trained under three opponent conditions (6 experiments in tota
 | exp5 | PPO | vs Rule-based | 44,000 | 0.6086 | 0.5235 | 1.5409 |
 | exp6 | PPO | vs Mixed      | 44,000 | 0.6359 | 0.6472 | 1.4637 |
 
+
+> Note: exp2 and exp3 ran longer due to extended training sessions. All plots and head-to-head comparisons use the 44,000-game checkpoints for fairness.
+
+**Key findings:**
+- Opponent diversity (mixed opponents) produced the strongest policies for both algorithms
+- Training against random opponents alone produces the weakest agents
+- DQN is more stable across opponent types; PPO is more sensitive but achieves higher peak scores
+- Best DQN: exp3 vs Mixed (final 20% = 0.6510)
+- Best PPO: exp6 vs Mixed (final 20% = 0.6472)
+
 ## Results Plots
 
 ### DQN Learning Curves
