@@ -18,5 +18,6 @@ Each algorithm is trained under three opponent conditions (6 experiments in tota
 - torch==2.10.0
 - gymnasium==1.2.3
 - chefshatgym==3.0.0.1
-- 
+
+
 ### Experimental Setup
