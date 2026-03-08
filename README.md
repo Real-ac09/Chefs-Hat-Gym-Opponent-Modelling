@@ -153,6 +153,12 @@ python3 evaluate.py
 - **Reward signal:** Game performance score
 
 ---
+## AI Decleration
+
+| Tool | How used in this assignment |
+|---|---|
+| Claude Sonnet 4.6 | Basic Code Generation Structure |
+| Claude Sonnet 4.6 | Basic README.md structure |
 
 ## References
 
