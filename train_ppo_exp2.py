@@ -1,5 +1,5 @@
 """
-PPO Training Script - Exp 1: vs Random opponents
+PPO Training Script - Exp 2: vs Random opponents
 Variant 0: Opponent Modelling - Student ID: 12224702
 """
 
