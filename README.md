@@ -76,7 +76,7 @@ conda activate chefs_rl
 
 ### Run all DQN experiments
 ```bash
-bash train_all_parallel.sh
+bash train_dqn_all_parallel.sh
 ```
 
 ### Run all PPO experiments
